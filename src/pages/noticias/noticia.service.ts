@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers} from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { Noticia } from './Noticia';
+import { Noticia } from './noticia';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import * as global from '../../global';

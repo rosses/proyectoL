@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, NavController, NavParams, AlertController, MenuController } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Nav, NavController, AlertController, MenuController } from 'ionic-angular';
+import { Http, Headers } from '@angular/http';
 import { Lipigas } from '../../lipigas';
 import { Cumpleanos } from '../../pages/cumpleanos/cumpleanos';
 import { AprobarPuntos } from '../../pages/aprobarpuntos/aprobarpuntos';
@@ -15,6 +14,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import * as global from '../../global';
 
+import { Globals } from '../perfil/global-vars';
+
 @Component({
   selector: 'home',
   templateUrl: 'home.html',
@@ -24,12 +25,15 @@ import * as global from '../../global';
 export class Home {
   @ViewChild(Nav) nav: Nav;
   public perfil: any;
+  public globals: any;
   mainPage: any = NoticiasComponent;
   public isAuth: boolean = false;
   public isPeople: boolean = false;
 
   constructor(public navCtrl: NavController, public http: Http, private service: Lipigas, private alertCtrl: AlertController, public menuCtrl: MenuController) {
     this.perfil = JSON.parse(localStorage.getItem("LipigasPersonas"));
+    this.globals = Globals;
+    this.globals.avatar = 'url(' + this.perfil.avatar + ')';
 
     // update perfil
     let headers = new Headers();

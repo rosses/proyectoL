@@ -4,6 +4,7 @@ import { Lipigas } from '../../lipigas';
 import { Home } from '../home/home';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import {Camera} from 'ionic-native';
+import { Globals } from './global-vars';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import * as global from '../../global';
@@ -28,8 +29,11 @@ export class Perfil {
   public googleEnable: boolean = false;
   public skipeEnable: boolean = false;
 
+  public globals: any;
+
   constructor(public navCtrl: NavController, public http: Http, private service: Lipigas, public loadingController: LoadingController, public actionSheetCtrl: ActionSheetController) {
 
+    this.globals = Globals;
     this.login = JSON.parse(localStorage.getItem("LipigasPersonas"));
     this.perfil = {
       "rut": "",
@@ -48,7 +52,7 @@ export class Perfil {
       "google_id": "",
       "descripcion": "",
       "qr": ""
-    }
+    };
     this.loading = this.loadingController.create({content:'recuperando datos...'});
     this.loading.present();
 
@@ -167,12 +171,13 @@ export class Perfil {
     var self = this;
 
     xhr.onreadystatechange = function () {
-        if(xhr.readyState === 4 && xhr.status === 200) {
+      if(xhr.readyState === 4 && xhr.status === 200) {
           var json = JSON.parse(xhr.responseText);
           self.loading.dismiss();
           if (json.mensaje == 'OK') {
               self.perfil.avatar = json.avatar;
               self.login.avatar = json.avatar;
+              self.globals.avatar = 'url(' + json.avatar + ')';
               localStorage.setItem("LipigasPersonas", JSON.stringify(self.login));
               self.service.showMsg('Foto actualizada con éxito');
           }
