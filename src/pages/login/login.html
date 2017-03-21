@@ -1,0 +1,25 @@
+<ion-content class="login" no-bounce>
+  <div class="vertical-center">
+    <img src="assets/images/lipigas.png" class="logo-big" />
+
+    <ion-list>
+      <ion-item>
+        <ion-input #rut maxlength="12" type="text" placeholder="RUT"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input #password type="password" placeholder="Contraseña"></ion-input>
+      </ion-item>
+
+      <div class="lost" align="right">
+        <a (click)="goToPasswordPerdida()">¿Olvidó su contraseña?</a>
+      </div>
+
+      <button class="shadow" (click)="login(rut.value,password.value)" ion-button color="primary">Iniciar sesión</button>
+
+
+    </ion-list>
+
+
+  </div>
+</ion-content>

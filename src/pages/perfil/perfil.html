@@ -1,0 +1,84 @@
+<ion-header>
+  <div class="colorline"><img src="assets/images/borde-top.jpg" /></div>
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="secondary"></ion-icon>
+    </button>
+    <ion-title><img src="assets/images/header-logo.jpg" /></ion-title>
+  </ion-navbar>
+</ion-header>  
+
+<ion-content class="perfil" padding>
+  <div class="avatar" id="avatar" [ngStyle]="{'background-image': 'url(' + base64Image + ')'}">
+    <a href="javascript:;" (click)="changeProfileImg()">
+    <div class="avatar-edit"><i class="lipi-icon icon-camara"></i></div>
+    </a>
+  </div>
+
+  <div class="nombre">{{perfil.nombres}} {{perfil.apellidos}}</div>
+  <div class="cargo">{{perfil.cargo}}</div>
+
+  <h3>Información</h3>
+  <ion-item>
+    <strong>Teléfono de oficina: </strong> <span>{{perfil.telefono_oficina}}</span>  
+    <input type="number" [hidden]="!fonoEnable" value="{{perfil.telefono_oficina}}" #oficina />
+    <div class="item-note" (click)="fonoEnableFn();" item-right><i class="lipi-icon icon-editar"></i></div>
+  </ion-item>
+  <ion-item>
+    <strong>Teléfono móvil: </strong> <span>{{perfil.telefono_movil}}</span> 
+    <input type="number" [hidden]="!movilEnable" value="{{perfil.telefono_movil}}" #movil />
+    <div class="item-note" (click)="movilEnableFn();" item-right><i class="lipi-icon icon-editar"></i></div>
+  </ion-item>
+  <ion-item>
+    <strong>E-mail: </strong> <span>{{perfil.email}}</span> 
+    <input type="email" [hidden]="!emailEnable" value="{{perfil.email}}" #email />
+    <div class="item-note" (click)="emailEnableFn();" item-right><i class="lipi-icon icon-editar"></i></div>
+  </ion-item>
+  <ion-item>
+    <strong>Skype ID: </strong> <span>{{perfil.skype}}</span>
+    <input type="text" [hidden]="!skipeEnable" value="{{perfil.skype}}" #skype /> 
+    <div class="item-note" (click)="skipeEnableFn();" item-right><i class="lipi-icon icon-editar"></i></div>
+  </ion-item>
+  <ion-item>
+    <strong>Google+/Hangout ID: </strong> <span>{{perfil.google_id}}</span> 
+    <input type="text" [hidden]="!googleEnable" value="{{perfil.google_id}}" #google />
+    <div class="item-note" (click)="googleEnableFn();" item-right><i class="lipi-icon icon-editar"></i></div>
+  </ion-item>
+
+  <button class="shadow" (click)="updateme(email.value,oficina.value,movil.value,skype.value,google.value);" ion-button color="primary">Actualizar información</button>
+
+  <h3>Contraseña</h3>
+  <div class="passwordLabel">Nueva contraseña</div>
+  <ion-item class="passwordInput">
+    <input type="password" #password1 />
+  </ion-item>
+  <div class="passwordLabel">Repetir la contraseña</div>
+  <ion-item class="passwordInput">
+    <input type="password" #password2 />
+  </ion-item>
+
+  <button class="shadow" ion-button color="primary" (click)="setPasword(password1.value,password2.value)">Cambiar Contraseña</button>
+
+
+  <div align="center">
+    <img src="{{perfil.qr}}" />
+  </div>
+
+
+  <canvas id="mycanvas" style="display:none;"></canvas>
+
+  <div class="full-overlay" padding [hidden]="overlayHidden">
+    <div class="vertical-center popup" color="primary" [hidden]="popupSetPasswordHidden">
+      <p>Contraseña modificada con éxito</p>
+      <button class="shadow" color="primary" ion-button (click)="closePopup();">Aceptar</button>
+    </div>
+    <div class="vertical-center popup" color="primary" [hidden]="popupSetUpdateHidden">
+      <p>Datos actualizados con éxito</p>
+      <button class="shadow" color="primary" ion-button (click)="closePopup();">Aceptar</button>
+    </div>
+    <div class="vertical-center popup" color="primary" [hidden]="popupSetImage">
+      <p>Imagen actualizada con éxito</p>
+      <button class="shadow" color="primary" ion-button (click)="closePopup();">Aceptar</button>
+    </div>
+  </div>
+</ion-content>

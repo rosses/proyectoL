@@ -1,0 +1,37 @@
+<ion-header>
+  <div class="colorline"><img src="assets/images/borde-top.jpg" /></div>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="secondary"></ion-icon>
+    </button>
+    <ion-title><img src="assets/images/header-logo.jpg" /></ion-title>
+  </ion-navbar>
+</ion-header>  
+
+<ion-content class="aprobarpuntos" padding>
+
+  <h3>Lipipuntos solicitados por mis colaboradores</h3>
+
+  <div class="" *ngIf="NoHay">
+    <h1>{{MensajeSistema}}</h1>
+  </div>
+  <div class="card_aprobar" *ngFor="let apro of aprobables; let i = index">
+    <b>Colaborador:</b> {{apro.Colaborador}} <br />
+    <b>Lipipuntos:</b> {{apro.Beneficio}} <br />
+    <b>Fecha:</b> {{apro.Para}}" <br />
+    <b>Puntos:</b> <span [innerHTML]="addCommas(apro.Puntos*-1)"></span>
+    <br /><br />
+    <ion-row>
+      <ion-col width-50>
+        <button class="yellow" *ngIf="apro.aprobado == 0 && apro.aprobado != -1" (click)="aprobar(apro.IDSolicitud,i);">Aprobar</button>
+        <button class="yellow" *ngIf="apro.aprobado == 1 && apro.aprobado != -1">Aprobado</button>
+      </ion-col>
+      <ion-col width-50>
+        <button class="blue" *ngIf="apro.rechazado == 0 && apro.rechazado != -1" (click)="rechazar(apro.IDSolicitud,i);">Rechazar</button>
+        <button class="blue" *ngIf="apro.rechazado == 1 && apro.rechazado != -1">Rechazado</button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+  <div class="colorline"><img src="assets/images/borde-top.jpg" /></div>
+  <ion-navbar>
+    <!--<button ion-button menuToggle>
+      <ion-icon name="menu" color="secondary"></ion-icon>
+    </button>-->
+    <ion-title><img src="assets/images/header-logo.jpg" /></ion-title>
+  </ion-navbar>
+</ion-header>  
+
+<ion-content class="verpersona" padding>
+  <div class="avatar" id="avatar" [ngStyle]="{'background-image': 'url('+perfil.avatar+')'}"></div>
+
+  <div class="nombre">{{perfil.nombres}} {{perfil.apellidos}}</div>
+  <div class="cargo">{{perfil.cargo}}</div>
+
+  <div align="center" class="tools" *ngIf="isMe">
+    <a href="tel:+56{{perfil.telefono_oficina_mod}}">
+      <div class="globo"><i class="lipi-icon icon-telefono"></i></div>
+    </a>
+    <a href="whatsapp://send?text=Hola&phone=+569{{perfil.telefono_movil}}">
+      <div class="globo"><i class="lipi-icon icon-mensaje"></i></div>
+    </a>
+    <a href="mailto:{{perfil.email}}">
+      <div class="globo"><i class="lipi-icon icon-correo"></i></div>
+    </a>
+  </div>
+
+  <h3>Información básica</h3>
+  <ion-item>
+    <strong>Fecha de nacimiento: </strong> <span>{{perfil.fecha_nacimiento}}</span>  
+  </ion-item>
+  <ion-item>
+    <strong>Unidad: </strong> <span>{{perfil.unidad}}</span> 
+  </ion-item>
+  <ion-item>
+    <strong>Ubicación: </strong> <span>{{perfil.ubicacion}}</span> 
+  </ion-item>
+  <ion-item>
+    <strong>Pais: </strong> <span>{{perfil.pais}}</span>
+  </ion-item>
+  <ion-item>
+    <strong>Ingreso: </strong> <span>N/A</span> 
+  </ion-item>
+
+  <h3>Información de contacto</h3>
+  <ion-item>
+    <strong>Teléfono de oficina: </strong> <span>{{perfil.telefono_oficina}}</span>  
+  </ion-item>
+  <ion-item>
+    <strong>Teléfono móvil: </strong> <span>{{perfil.telefono_movil}}</span> 
+  </ion-item>
+  <ion-item>
+    <strong>E-mail: </strong> <span>{{perfil.email}}</span> 
+  </ion-item>
+</ion-content>

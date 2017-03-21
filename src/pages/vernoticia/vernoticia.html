@@ -1,0 +1,87 @@
+<ion-header>
+  <div class="colorline"><img src="assets/images/borde-top.jpg" /></div>
+  <ion-navbar hideBackButton>
+    <ion-buttons start>
+      <button ion-button class="the-back" icon-only (click)="goNews()">
+        <ion-icon name="arrow-back" color="secondary"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title><img src="assets/images/header-logo.jpg" /></ion-title>
+    <ion-buttons end>
+	    <button class="top-aplausos ta-no" ion-button *ngIf="noticia?.aplaudida == 0" (click)="aplausoDar()">
+	      {{noticia.total_aplausos}} <img src="assets/icon/aplausos.blue.png" />
+	    </button>
+	    <button class="top-aplausos ta-si" ion-button *ngIf="noticia?.aplaudida == 1" (click)="aplausoQuitar()">
+	      {{noticia.total_aplausos}} <img src="assets/icon/aplausos.yellow.png" />
+	    </button>
+
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>  
+
+<ion-content padding>
+  <h3>Noticias</h3>
+  <div *ngIf="isLoading">
+	<div class="timeline-wrapper">
+	    <div class="timeline-item forceh">
+	      <div class="animated-background">
+	        <div class="background-masker news-img"></div>
+	        <div class="background-masker news-date"></div>
+	        <div class="background-masker news-date2"></div>
+	        <div class="background-masker news-title"></div>
+	        <div class="background-masker news-icon1"></div>
+	        <div class="background-masker news-icon2"></div>
+	       </div>
+	    </div>
+	</div>
+  </div>
+	<!--<div [innerHTML]="newsContent"></div>-->
+	<div class="timeline-wrapper" *ngIf="!isLoading">
+	    <div class="timeline-item">
+	      <div class="timeline-container">
+	      	<div class="tlc-img"><img src="{{noticia.imagen}}" /></div>
+			<ion-grid>
+			  <ion-row>
+			  	<ion-col class="tlc-fecha">{{noticia.fecha}}</ion-col>
+			  </ion-row>
+			  <ion-row>
+			  	<ion-col class="tlc-titulo">{{noticia.titulo}}</ion-col>
+			  </ion-row>
+			  <ion-row>
+			  	<ion-col [innerHTML]="sanitizer.bypassSecurityTrustHtml(noticia.contenido)"></ion-col>
+			  </ion-row>
+			  <ion-row>
+			  	<ion-col class="tlc-comentarios">
+			  		Comentarios ({{noticia.comentarios}})
+			  	</ion-col>
+			  </ion-row>
+			  <ion-row>
+			  	<ion-col>
+			  		<ion-textarea placeholder="Escribe tu comentario..." #comentario [(ngModel)]="msg"></ion-textarea>
+			  	</ion-col>
+			  </ion-row>
+			  <ion-row>
+			  	<ion-col>
+			  		<button class="shadow" (click)="comentar()" ion-button color="primary">Enviar comentario</button>
+			  	</ion-col>
+			  </ion-row>
+			</ion-grid>
+	      </div>
+	    </div>
+	</div>
+
+	<div *ngFor="let com of noticia?.comments">
+		  <div class="com">
+		  	<div class="tcom-foto">
+		  		<div (click)="goToPeople(com.rut)" [ngStyle]="{'background-image': 'url(' + com.avatar + ')'}"></div>
+		  	</div>
+		  	<div class="tcom-data">
+		  		<span (click)="goToPeople(com.rut)">{{com.nombre}}</span> <br />
+		  		{{com.publicado}}
+		  		<div [innerHTML]="sanitizer.bypassSecurityTrustHtml(com.comentario)"></div>
+		  	</div>
+		  	<div class="c"></div>
+		  </div>
+	</div>
+
+</ion-content>

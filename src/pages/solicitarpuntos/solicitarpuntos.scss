@@ -1,0 +1,105 @@
+solicitarpuntos {
+
+
+	.table-title {
+		background-color: color($colors,light);
+		border: 1px solid color($colors, secondary);
+		color: #FFFFFF;
+		text-align:center;
+		padding: 10px;
+	}
+	.table-col {
+		text-align: center;
+		font-size: 2em;
+		color: color($colors, secondary);
+		border: 1px solid color($colors, secondary);
+		padding: 15px;
+	}
+	ion-col {
+		color: color($colors, secondary);
+	}
+	ion-col img {
+		max-width: 90%;
+	}
+	h3 {
+		padding:0;
+		margin:0;
+		border:0;
+		padding-top: 4px;
+		padding-bottom: 4px;
+	}
+	.card_beneficio {
+		border-bottom: 1px solid color($colors, gold);
+		padding-bottom: 20px;
+		padding-top: 20px;
+	}
+	.tabs ion-col:first-child {
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
+	.tabs ion-col:last-child {
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+	}
+	.tabs ion-col {
+		padding: 15px;
+		text-align:center;
+	}
+	.tabs ion-col.on {
+		background-color: color($colors, primary);
+		color: color($colors, secondary);
+		font-weight: bold;
+	}
+	.tabs ion-col.off {
+		background-color: color($colors, goldpastel);
+		color: color($colors, light);
+		font-weight: bold;
+	}
+	.tabs {
+		margin-bottom: 20px;
+	}
+	button.blue {
+		background: -moz-linear-gradient(270deg, rgba(2,68,193,1) 0%, rgba(2,68,193,1) 16%, rgba(0,46,133,1) 100%); /* ff3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(2,68,193,1)), color-stop(16%, rgba(2,68,193,1)), color-stop(100%, rgba(0,46,133,1))); /* safari4+,chrome */
+		background: -webkit-linear-gradient(270deg, rgba(2,68,193,1) 0%, rgba(2,68,193,1) 16%, rgba(0,46,133,1) 100%); /* safari5.1+,chrome10+ */
+		background: -o-linear-gradient(270deg, rgba(2,68,193,1) 0%, rgba(2,68,193,1) 16%, rgba(0,46,133,1) 100%); /* opera 11.10+ */
+		background: -ms-linear-gradient(270deg, rgba(2,68,193,1) 0%, rgba(2,68,193,1) 16%, rgba(0,46,133,1) 100%); /* ie10+ */
+		background: linear-gradient(180deg, rgba(2,68,193,1) 0%, rgba(2,68,193,1) 16%, rgba(0,46,133,1) 100%); /* w3c */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0244C1', endColorstr='#002E85',GradientType=0 ); /* ie6-9 */
+		-webkit-box-shadow: 0px 2px 14px 0px #002E85;
+		-moz-box-shadow:    0px 2px 14px 0px #002E85;
+		box-shadow:         0px 2px 14px 0px #002E85;
+		color: #FFF;
+		padding: 11px;
+		padding-left: 20px;
+		padding-right: 20px;
+		border: 0;
+		border-radius: 5px;
+		font-size: 17px;
+		float: right;
+	}
+
+	.card_utilizados {
+		border-bottom: 1px solid color($colors, gold);
+		padding-bottom: 20px;
+		padding-top: 20px;
+		color: color($colors,dark);
+	}
+
+	.popupRequest img {
+		max-width: 30px;
+		vertical-align: top;
+	}
+	.popupRequest { margin-top: 10px; margin-bottom: 10px; }
+	.popupRequest input {
+		border: 1px solid color($colors,secondary);
+		padding: 6px;
+	}
+	.popupRequest select {
+		border: 1px solid color($colors,secondary);
+		padding: 6px;
+	}
+	.popupRequest button {
+		text-transform: none !important;
+	}
+}

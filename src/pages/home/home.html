@@ -1,0 +1,56 @@
+<ion-menu [content]="main" persistent="true">
+  <ion-content class="lateral">
+    <div class="avatar" [ngStyle]="{'background-image': 'url(' + perfil.avatar + ')'}">
+      <a href="javascript:;"></a>
+    </div>
+    <div class="nombre">{{perfil.firstname}} {{perfil.lastname}}</div>
+    <div class="cargo">{{perfil.cargo}}</div>
+
+    <ion-list>
+
+      <ion-item (click)="goToNoticias()">
+        <img src="assets/icon/noticias.menu.png" item-left />
+        <span>Noticias</span>
+      </ion-item>
+
+      <ion-item (click)="goToCumpleanos()">
+        <img src="assets/icon/cumpleano.blue.png" item-left />
+        <span>Cumpleaños</span>
+      </ion-item>  
+
+      <ion-item *ngIf="isAuth">
+        <img src="assets/icon/lipipuntos.blue.png" item-left />
+        <span>Lipipuntos</span>
+      </ion-item>
+
+      <ion-item *ngIf="isAuth" (click)="goToSolicitaLipipuntos()" class="inter-item">
+        <img src="assets/icon/solicitar.blue.png" item-left />
+        <span>Solicitar Lipipuntos</span>
+      </ion-item>
+
+      <ion-item *ngIf="isAuth" (click)="goToAprobarLipipuntos()" class="inter-item">
+        <img src="assets/icon/aprobar.blue.png" item-left />
+        <span>Aprobar Lipipuntos</span>
+      </ion-item>
+
+      <ion-item (click)="goToSolicitaLipipuntos()" *ngIf="isPeople">
+        <img src="assets/icon/lipipuntos.blue.png" item-left />
+        <span>Solicitar Lipipuntos</span>
+      </ion-item>     
+
+      <ion-item (click)="goToMiCuenta()">
+        <i class="lipi-icon icon-perfil" item-left></i>
+        <span>Mi Cuenta</span>
+      </ion-item>
+
+      <ion-item (click)="goToLogout()">
+        <i class="lipi-icon icon-salir" item-left></i>
+        <span>Salir</span>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="mainPage" #main swipeBackEnabled="false">
+</ion-nav>

@@ -1,0 +1,61 @@
+aprobarpuntos {
+
+	button.blue {
+		background: -moz-linear-gradient(270deg, rgba(2,68,193,1) 0%, rgba(2,68,193,1) 16%, rgba(0,46,133,1) 100%); /* ff3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(2,68,193,1)), color-stop(16%, rgba(2,68,193,1)), color-stop(100%, rgba(0,46,133,1))); /* safari4+,chrome */
+		background: -webkit-linear-gradient(270deg, rgba(2,68,193,1) 0%, rgba(2,68,193,1) 16%, rgba(0,46,133,1) 100%); /* safari5.1+,chrome10+ */
+		background: -o-linear-gradient(270deg, rgba(2,68,193,1) 0%, rgba(2,68,193,1) 16%, rgba(0,46,133,1) 100%); /* opera 11.10+ */
+		background: -ms-linear-gradient(270deg, rgba(2,68,193,1) 0%, rgba(2,68,193,1) 16%, rgba(0,46,133,1) 100%); /* ie10+ */
+		background: linear-gradient(180deg, rgba(2,68,193,1) 0%, rgba(2,68,193,1) 16%, rgba(0,46,133,1) 100%); /* w3c */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0244C1', endColorstr='#002E85',GradientType=0 ); /* ie6-9 */
+		-webkit-box-shadow: 0px 2px 14px 0px #002E85;
+		-moz-box-shadow:    0px 2px 14px 0px #002E85;
+		box-shadow:         0px 2px 14px 0px #002E85;
+		color: #FFF;
+		padding: 11px;
+		padding-left: 20px;
+		padding-right: 20px;
+		border: 0;
+		border-radius: 5px;
+		font-size: 17px;
+		float: right;
+	}
+	button.yellow {
+		  background: -moz-linear-gradient(270deg, color($colors,primary) 0%, color($colors,primary) 59%, color($colors,gold) 100%); /* ff3.6+ */
+		  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, color($colors,primary)), color-stop(59%, color($colors,primary)), color-stop(100%, color($colors,gold))); /* safari4+,chrome */
+		  background: -webkit-linear-gradient(270deg, color($colors,primary) 0%, color($colors,primary) 59%, color($colors,gold) 100%); /* safari5.1+,chrome10+ */
+		  background: -o-linear-gradient(270deg, color($colors,primary) 0%, color($colors,primary) 59%, color($colors,gold) 100%); /* opera 11.10+ */
+		  background: -ms-linear-gradient(270deg, color($colors,primary) 0%, color($colors,primary) 59%, color($colors,gold) 100%); /* ie10+ */
+		  background: linear-gradient(180deg, color($colors,primary) 0%, color($colors,primary) 59%, color($colors,gold) 100%); /* w3c */
+		  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='color($colors,primary)', endColorstr='color($colors,gold)',GradientType=0 ); /* ie6-9 */ 
+		  color: color($colors,secondary);
+		-webkit-box-shadow: 0px 2px 14px 0px color($colors,gold);
+		-moz-box-shadow:    0px 2px 14px 0px color($colors,gold);
+		box-shadow:         0px 2px 14px 0px color($colors,gold);
+		color: color($colors,secondary);;
+		padding: 11px;
+		padding-left: 20px;
+		padding-right: 20px;
+		border: 0;
+		border-radius: 5px;
+		font-size: 17px;
+		float: right;
+	}
+
+
+	h3 {
+		padding-bottom: 10px;
+	}
+	h1 {
+	    font-size: 1.5em;
+	    margin-top: 20px;
+	    color: color($colors, secondary);
+	}
+	.card_aprobar {
+		border-bottom: 1px solid color($colors, gold);
+		padding-bottom: 20px;
+		padding-top: 20px;
+		color: color($colors,dark);
+	}
+
+}

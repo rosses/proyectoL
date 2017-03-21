@@ -1,0 +1,289 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+@font-face {
+  font-family: "AvenirRoman";
+  src: url("../assets/fonts/Avenir-Roman.eot");
+  src: url("../assets/fonts/Avenir-Roman.eot?#iefix") format("embedded-opentype"),
+    url("../assets/fonts/Avenir-Roman.woff") format("woff"),
+    url("../assets/fonts/Avenir-Roman.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AvenirHeavy";
+  src: url("../assets/fonts/Avenir-Heavy.eot");
+  src: url("../assets/fonts/Avenir-Heavy.eot?#iefix") format("embedded-opentype"),
+    url("../assets/fonts/Avenir-Heavy.woff") format("woff"),
+    url("../assets/fonts/Avenir-Heavy.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.scroll-content, .fixed-content {
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.logo-big {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 30px
+}
+
+.vertical-center {
+    -moz-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% - 70px);
+}
+
+button[color="primary"].shadow {
+  -webkit-box-shadow: 0px 2px 14px 0px #CAA95B;
+  -moz-box-shadow:    0px 2px 14px 0px #CAA95B;
+  box-shadow:         0px 2px 14px 0px #CAA95B;
+}
+button[color="primary"].shadow:not(.activated) {
+  background: -moz-linear-gradient(270deg, color($colors,primary) 0%, color($colors,primary) 59%, color($colors,gold) 100%); /* ff3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, color($colors,primary)), color-stop(59%, color($colors,primary)), color-stop(100%, color($colors,gold))); /* safari4+,chrome */
+  background: -webkit-linear-gradient(270deg, color($colors,primary) 0%, color($colors,primary) 59%, color($colors,gold) 100%); /* safari5.1+,chrome10+ */
+  background: -o-linear-gradient(270deg, color($colors,primary) 0%, color($colors,primary) 59%, color($colors,gold) 100%); /* opera 11.10+ */
+  background: -ms-linear-gradient(270deg, color($colors,primary) 0%, color($colors,primary) 59%, color($colors,gold) 100%); /* ie10+ */
+  background: linear-gradient(180deg, color($colors,primary) 0%, color($colors,primary) 59%, color($colors,gold) 100%); /* w3c */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='color($colors,primary)', endColorstr='color($colors,gold)',GradientType=0 ); /* ie6-9 */ 
+  color: color($colors,secondary);
+}
+
+button[color="secondary"].shadow {
+  -webkit-box-shadow: 0px 2px 14px 0px color($colors,light);
+  -moz-box-shadow:    0px 2px 14px 0px color($colors,light);
+  box-shadow:         0px 2px 14px 0px color($colors,light);
+}
+button[color="secondary"].shadow:not(.activated) {
+  background: -moz-linear-gradient(270deg, color($colors,secondary) 0%, color($colors,secondary) 59%, color($colors,light) 100%); /* ff3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, color($colors,secondary)), color-stop(59%, color($colors,secondary)), color-stop(100%, color($colors,light))); /* safari4+,chrome */
+  background: -webkit-linear-gradient(270deg, color($colors,secondary) 0%, color($colors,secondary) 59%, color($colors,light) 100%); /* safari5.1+,chrome10+ */
+  background: -o-linear-gradient(270deg, color($colors,secondary) 0%, color($colors,secondary) 59%, color($colors,light) 100%); /* opera 11.10+ */
+  background: -ms-linear-gradient(270deg, color($colors,secondary) 0%, color($colors,secondary) 59%, color($colors,light) 100%); /* ie10+ */
+  background: linear-gradient(180deg, color($colors,secondary) 0%, color($colors,secondary) 59%, color($colors,light) 100%); /* w3c */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='color($colors,secondary)', endColorstr='color($colors,light)',GradientType=0 ); /* ie6-9 */
+}
+
+div, td, button, p, em, a, span, textarea, input::placeholder, textarea::placeholder {
+  font-family: 'AvenirRoman';
+}
+
+.popup {
+ width: 90%;
+ margin:auto;
+ padding: 20px;
+ position: absolute;
+ background-color: #FFF;
+ border-radius: 5px;
+ z-index: 30;
+ text-align:center;
+}
+.popup p {
+  display:inline-block;
+  font-family: 'AvenirHeavy';
+  font-size: 1.2em; 
+}
+.popup button {
+  display:inline-block;
+}
+
+.full-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 2000;
+  top: 0;
+  left: 0;
+}
+.full-overlay > div {
+  position: fixed !important;
+}
+.colorline, .colorline img {
+  width: 100%;
+  height: auto;
+  padding-top: 10px;
+}
+.ion-navbar, .toolbar-background-ios, .toolbar-background-android, .toolbar-background-md {
+  background-color: #FFFFFF;
+  border: 0 !important;
+}
+.toolbar-title-ios img {
+  max-width: 60%;
+  height: auto;
+}
+.header-md .colorline img { vertical-align: top; padding-top: 0; }
+
+h3 {
+  color: color($colors, secondary);
+  font-size: 1.1em;
+  font-family: 'AvenirHeavy';
+  padding-bottom: 5px;
+  border-bottom: 1px solid color($colors, primary);
+}
+h4 {
+  color: color($colors, secondary);
+  font-size: 1.1em;
+  font-family: 'AvenirHeavy';
+  padding-bottom: 5px;
+}
+
+/* ****************************************
+    Menu lateral
+*/
+
+.menu-inner .scroll-content {
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: color($colors, primary);
+  color: color($colors, secondary);
+}
+
+.lateral .avatar {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  border-radius: 50%;
+  border: 1px solid color($colors,secondary);
+  margin-top: 30px;
+}
+.lateral .avatar a {
+  display: block;
+  width: 80px;
+  height: 80px;
+}
+
+.lateral .nombre {
+  font-family: 'AvenirHeavy';
+  font-size: 1.1em;
+  margin-top: 10px;
+}
+.lateral .cargo {
+  font-size: 1.1em;
+}
+
+.lateral .list {
+  margin-top: 20px;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.lateral .item .lipi-icon {
+  font-weight:bold;
+  color: color($colors, secondary);
+  margin-right: 6px;
+} 
+.lateral .item .lipi-icon:before {
+  margin-left: -16px;
+}
+.lateral .item {
+  background-color: transparent;
+  border-top: 1px solid color($colors, darkprimary) !important;
+  border-bottom: 0 !important;
+  padding-left: 20px;
+}
+.lateral .item:last-child {
+  border-bottom: 1px solid color($colors, darkprimary) !important;
+}
+.lateral .item-inner {border:0 !important;}
+.lateral .item span {
+  color: color($colors,secondary);
+}
+.lateral .item img {
+  width: 25px;
+  margin-right: 14px;
+}
+.lateral .item.activated {
+  background-color: #f8de85 !important;
+}
+/* Sombra al abrir menu */
+.menu-content-reveal {
+  box-shadow: initial !important;
+}
+
+/* h3 alert */
+h3.alert-sub-title {
+  border: 0 !important;
+}
+
+.header {
+  z-index: 1 !important;
+}
+
+/* MD */
+.header-md .colorline {
+  padding: 0 !important;
+  height: 2px;
+}
+.header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
+  display: none;
+}
+.toolbar-title-md {
+  max-width: 200px;
+  margin-left: 24px;
+  text-align:center;
+}
+.toolbar-title-md img {
+  max-width: 60%;
+  display: inline-block;
+}
+
+.alertSuccess .alert-wrapper { border-radius:5px; padding: 10px; }
+.alertSuccess .alert-sub-title {
+    display: inline-block;
+    font-family: 'AvenirHeavy';
+    font-size: 1.2em;
+}
+.alertSuccess .alert-button-group { 
+  background-color: color($colors, gold);
+  width: 80%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+.alertSuccess .alert-button { 
+  border: 0; 
+}
+.alertSuccess{
+  button{
+    color: red;
+  }
+}
+.c { clear:both;}
+
+.back-button {
+  color: color($colors, secondary) !important;
+}
+.back-button {
+  /*padding-left: 12px;*/
+}
+.back-button-md {
+  margin: 0;
+  margin-left: -6px;
+}
+.bar-button-default-md {
+  margin: 0;
+}

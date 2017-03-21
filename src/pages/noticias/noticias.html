@@ -1,0 +1,79 @@
+<ion-header>
+  <div class="colorline"><img src="assets/images/borde-top.jpg" /></div>
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="secondary"></ion-icon>
+    </button>
+    <ion-title><img src="assets/images/header-logo.jpg" /></ion-title>
+  </ion-navbar>
+</ion-header>  
+
+<ion-content padding>
+
+<h3>Noticias</h3>
+<div *ngIf="isLoading">
+	<div class="timeline-wrapper">
+	    <div class="timeline-item forceh">
+	      <div class="animated-background">
+	        <div class="background-masker news-img"></div>
+	        <div class="background-masker news-date"></div>
+	        <div class="background-masker news-date2"></div>
+	        <div class="background-masker news-title"></div>
+	        <div class="background-masker news-icon1"></div>
+	        <div class="background-masker news-icon2"></div>
+	       </div>
+	    </div>
+	</div>
+	<div class="timeline-wrapper">
+	    <div class="timeline-item forceh">
+	      <div class="animated-background">
+	        <div class="background-masker news-img"></div>
+	        <div class="background-masker news-date"></div>
+	        <div class="background-masker news-date2"></div>
+	        <div class="background-masker news-title"></div>
+	        <div class="background-masker news-icon1"></div>
+	        <div class="background-masker news-icon2"></div>
+	      </div>
+	    </div>
+	</div>
+</div>
+
+<div class="timeline-wrapper" *ngFor="let noticia of noticias; let i = index">
+    <div class="timeline-item">
+      <div class="timeline-container">
+      	<div class="tlc-img" (click)="goToNews(noticia.id)"><img src="{{noticia.imagen}}" /></div>
+		<ion-grid>
+		  <ion-row>
+		  	<ion-col class="tlc-fecha">{{noticia.fecha}}</ion-col>
+		  </ion-row>
+		  <ion-row>
+		  	<ion-col class="tlc-titulo" (click)="goToNews(noticia.id)">{{noticia.titulo}}</ion-col>
+		  </ion-row>
+		  <ion-row>
+		  	<ion-col width-10> </ion-col>
+		    <ion-col offset-50 class="tlc-comentarios" width-10 text-right (click)="goToNews(noticia.id)">{{noticia.comentarios}}</ion-col>
+			<ion-col width-10 class="tlc-comentarios" text-right (click)="goToNews(noticia.id)"><i class="lipi-icon icon-comentario"></i></ion-col>
+		    <ion-col width-10 class="tlc-aplausos apl-{{noticia.aplaudida}}" text-right>
+		    	{{noticia.total_aplausos}} 
+		    </ion-col>
+			<ion-col width-10 class="tlc-aplausos" text-right>
+				<img src="assets/icon/aplausos.blue.png" *ngIf="noticia?.aplaudida == 0" (click)="aplausoDar(noticia.id,i)" />
+				<img src="assets/icon/aplausos.yellow.png" *ngIf="noticia?.aplaudida == 1" (click)="aplausoQuitar(noticia.id,i)" />
+			</ion-col>
+		  </ion-row>
+		</ion-grid>
+      </div>
+    </div>
+</div>
+
+
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasMoreData">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="cargando noticias...">
+    </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+  
+ 
+
+
+</ion-content>

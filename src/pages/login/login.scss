@@ -1,0 +1,37 @@
+login {
+	.login {
+		background: -moz-linear-gradient(89deg, rgba(208,210,211,1) 0%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%); /* ff3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(19%, rgba(255,255,255,1)), color-stop(100%, rgba(208,210,211,1))); /* safari4+,chrome */
+		background: -webkit-linear-gradient(89deg, rgba(208,210,211,1) 0%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%); /* safari5.1+,chrome10+ */
+		background: -o-linear-gradient(89deg, rgba(208,210,211,1) 0%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%); /* opera 11.10+ */
+		background: -ms-linear-gradient(89deg, rgba(208,210,211,1) 0%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%); /* ie10+ */
+		background: linear-gradient(1deg, rgba(208,210,211,1) 0%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%); /* w3c */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#D0D2D3',GradientType=0 ); /* ie6-9 */
+	}
+
+	.item {
+		margin-top: 30px;
+		margin-bottom: 4px;
+		background: white;
+		border: 1px solid color($colors,light) !important;
+		border-radius: 2px;
+	}
+
+	.item .item-inner {
+		border: 0 !important;
+	}
+
+	.item input {
+		color: color($colors,secondary);
+	}
+	.item input::placeholder {
+		color: color($colors,light);
+	}
+
+	.lost a {
+		color: color($colors,secondary);
+		text-decoration:none;
+	}
+	button { width: 100%; margin-top: 50px !important; }
+	button .button-inner { color: color($colors,secondary); }
+}

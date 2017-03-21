@@ -1,0 +1,80 @@
+<ion-header>
+  <div class="colorline"><img src="assets/images/borde-top.jpg" /></div>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="secondary"></ion-icon>
+    </button>
+    <ion-title><img src="assets/images/header-logo.jpg" /></ion-title>
+  </ion-navbar>
+</ion-header>  
+  <div class="full-overlay" padding [hidden]="overlayHidden" scroll="false">
+    <div class="vertical-center popup popupRequest" color="primary" [hidden]="popupRequest">
+      <h3>Activar Lipipuntos</h3>
+      Selecciona la fecha y horario
+      <br /><br />
+      <input type="date" #fechaSolicitud />
+      &nbsp;
+      <img src="assets/icon/solicitar.blue.png" />
+      &nbsp;
+      <select #horaSolicitud>
+        <option value="AM">AM</option>
+        <option value="PM">PM</option>
+      </select>
+      <br /><br />
+      <button class="shadow" ion-button (click)="postSolicitar(fechaSolicitud.value, horaSolicitud.value);">Solicitar</button>
+      <button class="shadow" ion-button (click)="closePopup();">Cancelar</button>
+    </div>
+  </div>
+<ion-content class="solicitarpuntos" padding>
+  
+  <ion-row class="tabs">
+    <ion-col [class.on]="primaryTab" [class.off]="secondTab" (click)="toggleLipipuntos()">Lipipuntos</ion-col>
+    <ion-col [class.on]="secondTab" [class.off]="primaryTab" (click)="toggleUtilizados()">Utilizados</ion-col>
+  </ion-row>
+  
+  <div *ngIf="secondTab">
+    
+    <div class="card_utilizados" *ngFor="let util of utilizados">
+        <b>Lipipuntos:</b> {{util.Beneficios}} <br />
+        <b>Fecha:</b> <span [innerHTML]="toddmmyyyy(util.Fecha)"></span> <br />
+        <b>Estado:</b> {{util.Autorizacion}} <br />
+        <b>Puntos:</b> <span [innerHTML]="addCommas(util.Puntos)"></span>
+    </div>
+
+  </div>
+
+  <div *ngIf="primaryTab">
+
+    <h4>¿Quieres solicitar Lipipuntos?</h4>
+    
+    1. Selecciónalo<br />
+    2. Escoge la fecha, listo!<br />
+    <br />
+
+    <ion-row>
+      <ion-col class="table-title" width-50>Puntos disponibles</ion-col>
+      <ion-col class="table-title" width-50>Puntos utilizados</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="table-col" width-50>{{puntosDisp}}</ion-col>
+      <ion-col class="table-col" width-50>{{puntosUso}}</ion-col>
+    </ion-row>
+ 
+
+    <div class="card_beneficio" *ngFor="let ben of beneficios; let i = index">
+    <ion-grid>
+      <ion-row>
+        <ion-col width-25><img [src]="ben.Imagen" /></ion-col>
+        <ion-col width-75>
+          <h3>{{ben.Titulo}}</h3>
+          <b [innerHTML]="addCommas(ben.Puntos)"></b><b> pts.</b> {{ben.Descripcion}}<br />
+          <h3>Vigente hasta {{ben.Fecha_vigencia}}</h3>
+          <br />
+          <button class="blue" *ngIf="ben.solicitado == 0" (click)="solicitar(ben.IDlipipuntos,ben.Puntos,i);">Solicitar</button>
+          <button class="blue" *ngIf="ben.solicitado == 1">Solicitado</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </div>
+  </div>
+</ion-content>

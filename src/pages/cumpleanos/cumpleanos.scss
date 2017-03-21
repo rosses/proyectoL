@@ -1,0 +1,33 @@
+cumpleanos {
+
+	.tcom-foto {
+		float: left;
+		width: 100px;
+	}
+	.tcom-data {
+		float: left;
+		width: calc(100% - 100px);
+	}
+	.tcom-foto div {
+	    background-position: 50% 50%;
+	    background-repeat: no-repeat;
+	    width: 80px;
+	    height: 80px;
+	    background-size: cover;
+	    border-radius: 50%;
+	    border: 2px solid color($colors,primary);
+	}
+	.tcom-data {
+		color: color($colors,dark)
+	}
+	.tcom-data span {
+		color: color($colors,secondary);
+		font-weight:bold;
+	}
+	.com {
+		border-bottom: 1px solid color($colors, primary);
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+}

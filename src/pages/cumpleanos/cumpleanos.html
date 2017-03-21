@@ -1,0 +1,27 @@
+<ion-header>
+  <div class="colorline"><img src="assets/images/borde-top.jpg" /></div>
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="secondary"></ion-icon>
+    </button>
+    <ion-title><img src="assets/images/header-logo.jpg" /></ion-title>
+  </ion-navbar>
+</ion-header>  
+
+<ion-content padding>
+	<h3>Cumpleaños de la semana</h3>
+
+	<div *ngFor="let com of cumples">
+		  <div class="com" (click)="goToPeople(com.rut)">
+		  	<div class="tcom-foto">
+		  		<div [ngStyle]="{'background-image': 'url(' + com.avatar + ')'}"></div>
+		  	</div>
+		  	<div class="tcom-data">
+		  		<br /><span>{{com.nombre}}</span> <br />
+		  		{{com.fecha}}
+		  	</div>
+		  	<div class="c"></div>
+		  </div>
+	</div>
+
+</ion-content>
