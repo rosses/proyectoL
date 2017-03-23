@@ -83,7 +83,7 @@ export class SolicitarPuntos {
   }
 
   public postSolicitar(fecha: string, horario: string) {
-    var dt = new Date(fecha+' 20:00:00');   
+    var dt = new Date(fecha);   
     var dn = new Date();
     if (dt <= dn) { 
       let conf = this.alertCtrl.create({

@@ -121,7 +121,7 @@ export class Perfil {
 
   private openGallery (): void {
 
-    this.processGallery('http://138.197.196.64:3000/assets/uploads/f6add4a3-dd91-473f-8286-daec78970bc8.jpg');
+    //this.processGallery('http://138.197.196.64:3000/assets/uploads/f6add4a3-dd91-473f-8286-daec78970bc8.jpg');
     /*
     let cameraOptions = {
       sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
@@ -301,8 +301,8 @@ export class Perfil {
           if (json.mensaje == 'OK') {
               self.perfil.avatar = json.avatar;
               self.login.avatar = json.avatar;
+              self.globals.avatar = 'url(' + json.avatar + ')';
               localStorage.setItem("LipigasPersonas", JSON.stringify(self.login));
-              //self.navCtrl.nav.perfil = JSON.parse(localStorage.getItem("LipigasPersonas"));
               self.service.showMsg('Foto actualizada con éxito');
           }
           else {
