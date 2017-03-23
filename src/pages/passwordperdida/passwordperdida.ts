@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, NavParams } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Lipigas } from '../../lipigas';
 import 'rxjs/add/operator/map';
