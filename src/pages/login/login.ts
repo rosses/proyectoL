@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, NavParams } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { PasswordPerdida } from '../passwordperdida/passwordperdida';
 import { Home } from '../home/home';
 import { Http, Headers, RequestOptions } from '@angular/http';

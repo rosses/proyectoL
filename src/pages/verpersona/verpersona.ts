@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, NavParams } from 'ionic-angular';
 import { Lipigas } from '../../lipigas';
-import { Http, Headers, RequestOptions } from '@angular/http';
-import {Camera} from 'ionic-native';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import * as global from '../../global';

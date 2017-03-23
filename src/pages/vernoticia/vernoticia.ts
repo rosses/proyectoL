@@ -4,7 +4,7 @@ import { NoticiasComponent } from '../../pages/noticias/noticias';
 import { Noticia } from '../../pages/noticias/noticia';
 import { NoticiaService } from '../../pages/noticias/noticia.service';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import { DomSanitizer, SafeResourceUrl, SafeUrl, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { VerPersona } from '../../pages/verpersona/verpersona';
 
 import * as global from '../../global';
