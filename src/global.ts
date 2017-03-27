@@ -2,10 +2,11 @@
 // ===== File globals.ts    
 // 
 // == PORTAL DE PERSONAS
+// 
 // TEST/QA
 // http://lipigas.qa.innobis.cl/api
-// MASK PRUEBAS
-// http://private-d9814d-apiportaldepersonas.apiary-mock.com
+// MIRROR (ENABLE CORS) PARA TEST
+// http://rosses.cl/lipipersonas
 // PROD 
 // http://personas.lipigas.cl/api
 // 
@@ -13,11 +14,11 @@
 // 
 // TEST/QA
 // http://lipigasqa.pc360.cl/
-// MASK PRUEBAS
-// http://private-fc1840-apicalidaddevida.apiary-mock.com
+// MIRROR (ENABLE CORS) PARA TEST
+// http://rosses.cl/lipipuntos
 // PROD
-// 
+// http://www.calidaddevidalipigas.cl
 
 'use strict';
-export var api: string='http://rosses.cl/lipipersonas'; // rewrite de qa
-export var apipuntos: string='http://rosses.cl/lipipuntos'; // rewrite de calidad
+export var api: string='http://personas.lipigas.cl/api';  
+export var apipuntos: string='http://www.calidaddevidalipigas.cl'; 

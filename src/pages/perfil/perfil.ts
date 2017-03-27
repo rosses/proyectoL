@@ -120,11 +120,11 @@ export class Perfil {
 
   private openGallery (): void {
 
-    //this.processGallery('http://138.197.196.64:3000/assets/uploads/f6add4a3-dd91-473f-8286-daec78970bc8.jpg');
-    /*
+    
+    
     let cameraOptions = {
       sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-      destinationType: Camera.DestinationType.FILE_URI,      
+      destinationType: Camera.DestinationType.DATA_URL,      
       quality: 60,
       targetWidth: 320,
       targetHeight: 320,
@@ -133,65 +133,10 @@ export class Perfil {
     }
 
     Camera.getPicture(cameraOptions)
-      .then(file_uri => this.processGallery(file_uri), 
+      .then(file_uri => this.processTake(file_uri), 
       err => console.log(err));
-    */
+    
   }
-
-  public processGallery(uri) {
-
-    this.base64Image = uri;
-
-    this.loading = this.loadingController.create({content:'actualizando...'});
-    this.loading.present();
-
-    var canvas:any = document.getElementById("mycanvas");
-    var ctx = canvas.getContext("2d");
-    var img = new Image();
-    img.src = uri;
-    img.crossOrigin = 'Anonymous';
-    var self = this;
-
-    img.onload = function () {
-      canvas.width = img.width;
-      canvas.height = img.height;
-      ctx.drawImage(img, 0, 0);
-      var blob = self.dataURItoBlob(canvas.toDataURL());
-
-      var objURL = window.URL.createObjectURL(blob);
-      var image = new Image();
-      image.src = objURL;
-      window.URL.revokeObjectURL(objURL);
-
-      var formData = new FormData();
-      formData.append('avatar', blob, 'avataruser.jpg');
-
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', global.api+'/perfil/avatar');
-      xhr.setRequestHeader("Authorization", 'Bearer ' + self.login.token);
-
-      xhr.onreadystatechange = function () {
-        if(xhr.readyState === 4 && xhr.status === 200) {
-          var json = JSON.parse(xhr.responseText);
-          self.loading.dismiss();
-          if (json.mensaje == 'OK') {
-            self.perfil.avatar = json.avatar;
-            self.login.avatar = json.avatar;
-            self.globals.avatar = 'url(' + json.avatar + ')';
-            localStorage.setItem("LipigasPersonas", JSON.stringify(self.login));
-            self.service.showMsg('Foto actualizada con éxito');
-          }
-          else {
-            self.service.logError(json, 'Error al procesar la solicitud. Inténtelo más tarde.');
-          }
-        }
-      };
-
-      xhr.send(formData);
-    };
-
-  }
-
   private dataURItoBlob(dataURI) {
     var byteString;
 

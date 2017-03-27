@@ -211,6 +211,10 @@ export class SolicitarPuntos {
     if (res == 'ok') {
       this.utilizados = obj;
     }
+    for (var i=0;i<this.utilizados.length;i++) {
+      if (this.utilizados[i].Autorizacion.toLowerCase().indexOf('rechaza') >= 0) { this.utilizados[i].color = 'red'; }
+      else { this.utilizados[i].color = ''; }
+    }
   }
   public addCommas(nStr: string) {
       nStr += '';

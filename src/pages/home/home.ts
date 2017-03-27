@@ -6,6 +6,7 @@ import { Cumpleanos } from '../../pages/cumpleanos/cumpleanos';
 import { AprobarPuntos } from '../../pages/aprobarpuntos/aprobarpuntos';
 import { SolicitarPuntos } from '../../pages/solicitarpuntos/solicitarpuntos';
 import { NoticiasComponent } from '../../pages/noticias/noticias';
+import { Colaboradores } from '../../pages/colaboradores/colaboradores';
 import { NoticiaService } from '../../pages/noticias/noticia.service';
 import { Perfil } from '../../pages/perfil/perfil';
 import { Login } from '../../pages/login/login';
@@ -29,6 +30,7 @@ export class Home {
   mainPage: any = NoticiasComponent;
   public isAuth: boolean = false;
   public isPeople: boolean = false;
+  public isOpen: boolean = false;
 
   constructor(public navCtrl: NavController, public http: Http, private service: Lipigas, private alertCtrl: AlertController, public menuCtrl: MenuController) {
     this.perfil = JSON.parse(localStorage.getItem("LipigasPersonas"));
@@ -85,6 +87,17 @@ export class Home {
   hola() { 
   console.log('dick');
   }
+
+  openSub() {
+    if (this.isOpen == false) { this.isOpen = true; }
+    else if (this.isOpen == true) { this.isOpen = false; }
+  }
+
+  goToLipipuntosHistory() {
+    this.nav.setRoot(Colaboradores);
+    this.menuCtrl.close();  
+  }
+  
   goToMiCuenta() {
     this.nav.setRoot(Perfil);
     this.menuCtrl.close();

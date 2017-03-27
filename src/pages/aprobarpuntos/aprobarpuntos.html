@@ -16,6 +16,7 @@
     <h1>{{MensajeSistema}}</h1>
   </div>
   <div class="card_aprobar" *ngFor="let apro of aprobables; let i = index">
+    <div class="card_aprobar_in" *ngIf="apro.showFila == 1">
     <b>Colaborador:</b> {{apro.Colaborador}} <br />
     <b>Lipipuntos:</b> {{apro.Beneficio}} <br />
     <b>Fecha:</b> {{apro.Para}}" <br />
@@ -31,6 +32,7 @@
         <button class="blue" *ngIf="apro.rechazado == 1 && apro.rechazado != -1">Rechazado</button>
       </ion-col>
     </ion-row>
+    </div>
   </div>
 
 

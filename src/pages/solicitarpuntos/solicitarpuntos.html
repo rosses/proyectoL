@@ -37,7 +37,7 @@
     <div class="card_utilizados" *ngFor="let util of utilizados">
         <b>Lipipuntos:</b> {{util.Beneficios}} <br />
         <b>Fecha:</b> <span [innerHTML]="toddmmyyyy(util.Fecha)"></span> <br />
-        <b>Estado:</b> {{util.Autorizacion}} <br />
+        <b>Estado:</b> <span class="{{util.color}}">{{util.Autorizacion}}</span> <br />
         <b>Puntos:</b> <span [innerHTML]="addCommas(util.Puntos)"></span>
     </div>
 

@@ -1,0 +1,42 @@
+colaboradores {
+
+	h3 {
+		padding:0;
+		margin:0;
+		border:0;
+		padding-top: 4px;
+		padding-bottom: 4px;
+	}
+	.card_beneficio {
+		border-bottom: 1px solid color($colors, gold);
+		padding-bottom: 20px;
+		padding-top: 20px;
+	}
+
+
+	.card_utilizados {
+		border-bottom: 1px solid color($colors, gold);
+		padding-bottom: 20px;
+		padding-top: 20px;
+		color: color($colors,dark);
+	}
+
+	.popupRequest img {
+		max-width: 30px;
+		vertical-align: top;
+	}
+	.popupRequest { margin-top: 10px; margin-bottom: 10px; }
+	.popupRequest input {
+		border: 1px solid color($colors,secondary);
+		padding: 6px;
+	}
+	.popupRequest select {
+		border: 1px solid color($colors,secondary);
+		padding: 6px;
+	}
+	.popupRequest button {
+		text-transform: none !important;
+	}
+
+	.red { color: red; }
+}

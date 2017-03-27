@@ -47,6 +47,7 @@ export class AprobarPuntos {
         for (var i = 0;i < obj.length;i++) {
           obj[i].rechazado = 0;
           obj[i].aprobado = 0;
+          obj[i].showFila = 1;
         }
         this.aprobables = obj;
       }
@@ -109,10 +110,12 @@ export class AprobarPuntos {
       conf.present();
 
       if (action == 'rechazar' && !isError) { 
+        this.aprobables[i].showFila = 0;
         this.aprobables[i].rechazado = 1;
         this.aprobables[i].aprobado = -1;
       }
       if (action == 'aprobar' && !isError) { 
+        this.aprobables[i].showFila = 0;
         this.aprobables[i].aprobado = 1;
         this.aprobables[i].rechazado = -1;
       }

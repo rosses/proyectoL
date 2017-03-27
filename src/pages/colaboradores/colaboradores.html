@@ -1,0 +1,25 @@
+<ion-header>
+  <div class="colorline"><img src="assets/images/borde-top.jpg" /></div>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="secondary"></ion-icon>
+    </button>
+    <ion-title><img src="assets/images/header-logo.jpg" /></ion-title>
+  </ion-navbar>
+</ion-header>  
+
+<ion-content class="colaboradores" padding>
+
+  <div>
+    <h3>Beneficios de mis colaboradores</h3>
+    <div class="card_utilizados" *ngFor="let rec of recupera">
+        <b>Fecha:</b> <span [innerHTML]="toddmmyyyy(rec.Fecha)"></span> <br />
+        <b>Colaborador:</b> {{rec.Colaborador}} <br />
+        <b>Beneficio:</b> {{rec.Beneficio}} <br />
+        <b>Autorización:</b> <span class="{{rec.color}}">{{rec.Autorizacion}}</span> <br />
+        <b>Puntos:</b> <span [innerHTML]="addCommas(rec.Puntos)"></span>
+    </div>
+
+  </div>
+
+</ion-content>

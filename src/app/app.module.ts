@@ -4,6 +4,7 @@ import { LipigasPersonas } from './app.component';
 import { Lipigas } from '../lipigas';
 import { VerNoticia } from '../pages/vernoticia/vernoticia';
 import { Cumpleanos } from '../pages/cumpleanos/cumpleanos';
+import { Colaboradores } from '../pages/colaboradores/colaboradores';
 import { VerPersona } from '../pages/verpersona/verpersona';
 import { SolicitarPuntos } from '../pages/solicitarpuntos/solicitarpuntos';
 import { AprobarPuntos } from '../pages/aprobarpuntos/aprobarpuntos';
@@ -19,6 +20,7 @@ import { Home } from '../pages/home/home';
     NoticiasComponent,
     VerNoticia,
     Cumpleanos,
+    Colaboradores,
     VerPersona,
     AprobarPuntos,
     SolicitarPuntos,
@@ -38,6 +40,7 @@ import { Home } from '../pages/home/home';
     NoticiasComponent,
     SolicitarPuntos,
     AprobarPuntos,
+    Colaboradores,
     VerNoticia,
     Cumpleanos,
     VerPersona,

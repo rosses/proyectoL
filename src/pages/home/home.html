@@ -18,20 +18,26 @@
         <span>Cumpleaños</span>
       </ion-item>  
 
-      <ion-item *ngIf="isAuth">
+      <ion-item *ngIf="isAuth" (click)="openSub()">
         <img src="assets/icon/lipipuntos.blue.png" item-left />
         <span>Lipipuntos</span>
       </ion-item>
 
-      <ion-item *ngIf="isAuth" (click)="goToSolicitaLipipuntos()" class="inter-item">
+      <ion-item *ngIf="isAuth && isOpen" (click)="goToSolicitaLipipuntos()" class="inter-item">
         <img src="assets/icon/solicitar.blue.png" item-left />
         <span>Solicitar Lipipuntos</span>
       </ion-item>
 
-      <ion-item *ngIf="isAuth" (click)="goToAprobarLipipuntos()" class="inter-item">
+      <ion-item *ngIf="isAuth && isOpen" (click)="goToAprobarLipipuntos()" class="inter-item">
         <img src="assets/icon/aprobar.blue.png" item-left />
         <span>Aprobar Lipipuntos</span>
       </ion-item>
+
+      <ion-item *ngIf="isAuth && isOpen" (click)="goToLipipuntosHistory()" class="inter-item">
+        <img src="assets/icon/lipihistory.png" item-left />
+        <span>Beneficios solicitados</span>
+      </ion-item>
+      
 
       <ion-item (click)="goToSolicitaLipipuntos()" *ngIf="isPeople">
         <img src="assets/icon/lipipuntos.blue.png" item-left />
