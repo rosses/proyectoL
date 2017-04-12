@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, NavController, AlertController, MenuController } from 'ionic-angular';
+import { GoogleAnalytics } from 'ionic-native';
 import { Http, Headers } from '@angular/http';
 import { Lipigas } from '../../lipigas';
 import { Cumpleanos } from '../../pages/cumpleanos/cumpleanos';

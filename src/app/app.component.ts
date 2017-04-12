@@ -33,8 +33,6 @@ export class LipigasPersonas {
         }).catch((_error) => {
           console.log("enableUncaughtExceptionReporting", _error)
         });
-
-
     });
 
     if (localStorage.getItem("LipigasPersonas")) {

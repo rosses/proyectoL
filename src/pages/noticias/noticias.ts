@@ -1,6 +1,6 @@
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
-import {GoogleAnalytics} from 'ionic-native';
 import { Component, OnInit } from '@angular/core';
+import { GoogleAnalytics } from 'ionic-native';
 import { Noticia } from './noticia';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { VerNoticia } from '../../pages/vernoticia/vernoticia';
