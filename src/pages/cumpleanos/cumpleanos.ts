@@ -1,5 +1,6 @@
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Component, OnInit } from '@angular/core';
+import {GoogleAnalytics} from 'ionic-native';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { VerPersona } from '../../pages/verpersona/verpersona';
 import * as global from '../../global';
@@ -33,7 +34,7 @@ export class Cumpleanos implements OnInit{
       data => this.processCumpleanos(data,'ok'),
       err => this.processCumpleanos(err,'err')
     );
-
+    GoogleAnalytics.trackView("Cumpleanos");
   }
 
   goToPeople(rut: string) {

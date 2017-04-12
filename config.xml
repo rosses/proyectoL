@@ -28,6 +28,7 @@
   <plugin name="cordova-plugin-wkwebview-engine" />
   <plugin name="cordova-plugin-camera" />
   <plugin name="cordova-plugin-file" />
+  <plugin name="cordova-plugin-google-analytics" />
 
   <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
 

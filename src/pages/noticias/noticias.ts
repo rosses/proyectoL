@@ -1,4 +1,5 @@
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import {GoogleAnalytics} from 'ionic-native';
 import { Component, OnInit } from '@angular/core';
 import { Noticia } from './noticia';
 import { Http, Headers, RequestOptions } from '@angular/http';
@@ -33,6 +34,7 @@ export class NoticiasComponent implements OnInit{
       this.isGeneral = false;
     }
     this.perfil = JSON.parse(localStorage.getItem("LipigasPersonas"));
+    GoogleAnalytics.trackView("Noticias");
   }
 
   ngOnInit(){

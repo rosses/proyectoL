@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
+import {GoogleAnalytics} from 'ionic-native';
 import { Lipigas } from '../../lipigas';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -28,6 +29,7 @@ export class SolicitarPuntos {
 
   constructor(public navCtrl: NavController, private alertCtrl: AlertController, public http: Http, private service: Lipigas, public loadingController: LoadingController) {  
     this.loadTab1();
+    GoogleAnalytics.trackView("Lipipuntos Home");
   }
 
   public loadTab1() {
@@ -109,6 +111,7 @@ export class SolicitarPuntos {
         data => this.processPostSolicitar(data,'ok',this.IDLipiSetup),
         err => this.processPostSolicitar(err,'err',this.IDLipiSetup)
       );
+      GoogleAnalytics.trackEvent("Lipipuntos", "Request", "ID_Request", this.IDLipipuntos);  
     }
 
 

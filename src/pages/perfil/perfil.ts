@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, ActionSheetController } from 'ionic-angular';
+import {GoogleAnalytics} from 'ionic-native';
 import { Lipigas } from '../../lipigas';
 import { Http, Headers } from '@angular/http';
 import {Camera} from 'ionic-native';
@@ -66,6 +67,7 @@ export class Perfil {
       data => this.processRequestProfile(data,'ok'),
       err => this.processRequestProfile(err,'err')
     );
+    GoogleAnalytics.trackView("Mi perfil");
 
   }
 
@@ -193,6 +195,7 @@ export class Perfil {
         this.emailEnable = false;
         this.googleEnable = false;
         this.skipeEnable = false;
+        GoogleAnalytics.trackEvent("Perfil", "Update", "Datos", this.perfil.rut);  
     }
     else {
        this.service.logError(obj, 'Error al procesar la solicitud. Inténtelo más tarde.');
@@ -253,6 +256,7 @@ export class Perfil {
               self.globals.avatar = 'url(' + json.avatar + ')';
               localStorage.setItem("LipigasPersonas", JSON.stringify(self.login));
               self.service.showMsg('Foto actualizada con éxito');
+              GoogleAnalytics.trackEvent("Perfil", "Update", "Foto", self.perfil.rut);
           }
           else {
              self.service.logError(json, 'Error al procesar la solicitud. Inténtelo más tarde.');

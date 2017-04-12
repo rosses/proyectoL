@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, NavParams } from 'ionic-angular';
+import {GoogleAnalytics} from 'ionic-native';
 import { Lipigas } from '../../lipigas';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -54,6 +55,9 @@ export class VerPersona {
       data => this.processRequestProfile(data,'ok'),
       err => this.processRequestProfile(err,'err')
     );
+
+    GoogleAnalytics.trackView("Ver perfil");
+    GoogleAnalytics.trackEvent("Perfil", "Ver", "ID", this.rut);  
 
   }
 

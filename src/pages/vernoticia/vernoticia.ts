@@ -1,4 +1,5 @@
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import {GoogleAnalytics} from 'ionic-native';
 import { Component, OnInit } from '@angular/core';
 import { NoticiasComponent } from '../../pages/noticias/noticias';
 import { Noticia } from '../../pages/noticias/noticia';
@@ -30,6 +31,8 @@ export class VerNoticia implements OnInit{
   constructor( private noticiaService : NoticiaService, public navCtrl: NavController, public params: NavParams, private service: Lipigas, public loadingController: LoadingController, public http: Http, private sanitizer: DomSanitizer ) { 
     this.perfil = JSON.parse(localStorage.getItem("LipigasPersonas"));
     this.id = params.get("id");
+    GoogleAnalytics.trackView("Noticias detalle");
+    GoogleAnalytics.trackEvent("Noticias", "Leer", "ID", this.id);
   }
 
   ngOnInit(){

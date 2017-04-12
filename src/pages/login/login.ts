@@ -55,7 +55,7 @@ export class Login {
   	this.loading.dismiss();
   	if (tipo == 'ok') {
   		localStorage.setItem( "LipigasPersonas" , JSON.stringify(obj));
-  		this.navCtrl.push(Home);
+  		this.navCtrl.setRoot(Home);
   	}
   	else if (tipo == 'err') {
 			if (obj.status == '401') { this.service.logError(obj, 'No fue posible acceder con el RUT y clave indicados'); }
